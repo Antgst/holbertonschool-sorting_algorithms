@@ -12,8 +12,8 @@ static void quick_sort_recursive(int *array, size_t size, int low, int high);
  * quick_sort - Sorts an array of integers in ascending order
  * using the quick sort algorithm
  * 
- * quick_sort_recursive - recusrively sorts arrays
- * using the quick sort algoriclearthm
+ * quick_sort_recursive - recursively sorts arrays
+ * using the quick sort algorithm
  * 
  * @array: Pointer to the array of integers to sort
  * @size: number of elements in the array
@@ -43,7 +43,7 @@ static int lomuto_partition(int *array, size_t size, int low, int high)
 
 	for (j = low; j < high; j++)
 	{
-		if(array[j] <= pivot)
+		if (array[j] < pivot)
 		{
 			if (i < j)
 			{
