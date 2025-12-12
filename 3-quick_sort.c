@@ -1,22 +1,5 @@
 #include "sort.h"
 
-static int lomuto_partition(int *array, size_t size, int low, int high);
-static void quick_sort_recursive(int *array, size_t size, int low, int high);
-
-/**
- * quick_sort - Sorts an array of integers in ascending order using Quick sort
- * (Lomuto partition scheme, pivot is always the last element).
- * @array: Pointer to the array to sort
- * @size: Number of elements in the array
- */
-void quick_sort(int *array, size_t size)
-{
-	if (!array || size < 2)
-		return;
-
-	quick_sort_recursive(array, size, 0, (int)size - 1);
-}
-
 /**
  * partition_lomuto - partitions array using the Lomuto scheme
  * @array: array to partition
@@ -62,20 +45,36 @@ int partition_lomuto(int *array, int low, int high, size_t total_size)
 }
 
 /**
- * quick_sort_recursive - Recursively sorts partitions of the array
- * @array: Pointer to the array
- * @size: Total size of the array (for print_array)
- * @low: Starting index of the partition
- * @high: Ending index of the partition
+ * quick_recursive - recursively sorts a sub-array using Quick Sort
+ * @array: pointer to the array of integers
+ * @low: starting index of the sub-array
+ * @high: ending index of the sub-array
+ * @total_size: total size of the array for printing purposes
  */
-static void quick_sort_recursive(int *array, size_t size, int low, int high)
+
+void quick_recursive(int *array, int low, int high, size_t total_size)
 {
 	int pivot_index;
 
 	if (low < high)
 	{
-		pivot_index = lomuto_partition(array, size, low, high);
-		quick_sort_recursive(array, size, low, pivot_index - 1);
-		quick_sort_recursive(array, size, pivot_index + 1, high);
+		pivot_index = partition_lomuto(array, low, high, total_size);
+
+		quick_recursive(array, low, pivot_index - 1, total_size);
+		quick_recursive(array, pivot_index + 1, high, total_size);
 	}
+}
+
+/**
+ * quick_sort - sorts an array of integers in ascending order using Quick Sort
+ * @array: pointer to the array of integers
+ * @size: size of the array
+ */
+
+void quick_sort(int *array, size_t size)
+{
+	if (array == NULL || size < 2)
+		return;
+
+	quick_recursive(array, 0, size - 1, size);
 }
