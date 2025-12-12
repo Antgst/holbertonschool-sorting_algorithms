@@ -18,46 +18,47 @@ void quick_sort(int *array, size_t size)
 }
 
 /**
- * lomuto_partition - Partitions an array using the Lomuto scheme
- * (pivot is always the last element of the partition).
- * @array: Pointer to the array
- * @size: Total size of the array (for print_array)
- * @low: Starting index of the partition
- * @high: Ending index of the partition (pivot index)
+ * partition_lomuto - partitions array using the Lomuto scheme
+ * @array: array to partition
+ * @low: start index
+ * @high: end index (pivot position)
+ * @total_size: full size of the array (for print_array)
  *
- * Return: The final index of the pivot
+ * Return: final index of the pivot
  */
-static int lomuto_partition(int *array, size_t size, int low, int high)
+int partition_lomuto(int *array, int low, int high, size_t total_size)
 {
-	int pivot, i, j, tmp;
+	int pivot, i, j, temp;
 
 	pivot = array[high];
-	i = low;
+	i = low - 1;
 
 	for (j = low; j < high; j++)
 	{
 		if (array[j] < pivot)
 		{
+			i++;
+
 			if (i != j)
 			{
-				tmp = array[i];
+				temp = array[i];
 				array[i] = array[j];
-				array[j] = tmp;
-				print_array(array, size);
+				array[j] = temp;
+				print_array(array, total_size);
 			}
-			i++;
 		}
 	}
 
-	if (i != high)
+	/* place pivot at correct position */
+	if (array[i + 1] != array[high])
 	{
-		tmp = array[i];
-		array[i] = array[high];
-		array[high] = tmp;
-		print_array(array, size);
+		temp = array[i + 1];
+		array[i + 1] = array[high];
+		array[high] = temp;
+		print_array(array, total_size);
 	}
 
-	return (i);
+	return (i + 1);
 }
 
 /**
