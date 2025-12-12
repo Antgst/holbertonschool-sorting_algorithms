@@ -30,7 +30,7 @@ void selection_sort(int *array, size_t size)
             low = j;
         }
         
-        if (low != 1)
+        if (low != i)
         {
             tmp = array [i];
             array [i] = array [low];
