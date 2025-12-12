@@ -1,4 +1,6 @@
 #include "sort.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 static int lomuto_partition(int *array, size_t size, int low, int high);
 static void quick_sort_recursive(int *array, size_t size, int low, int high);
