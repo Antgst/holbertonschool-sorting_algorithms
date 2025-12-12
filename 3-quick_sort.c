@@ -1,78 +1,102 @@
+#include <stdio.h>
 #include "sort.h"
-void recurs(int array[], int low, int high, size_t size);
-int partition(int array[], int low, int high, size_t size);
 
 /**
- * quick_sort - Sorts an array of integers in ascending order using Quick sort.
- * @array: Array of integers to sort.
- * @size: Size of the array.
+ * swap - Swap two integers in an array.
+ * @x: First integer to swap.
+ * @y: Second integer to swap.
  *
- * Description: Uses the Lomuto partition scheme.
- *              The pivot is always the last element.
- *              Prints the array after each swap.
- */
-void quick_sort(int *array, size_t size)
+ * Picture two kids trading Pokemon cards - they just swap them.
+ * This function does exactly that but with numbers inside memory.
+**/
+void swap(int *x, int *y)
 {
-	if (!array || size < 2)
-		return;
-
-	recurs(array, 0, size - 1, size);
+	int temp = *x;
+	*x = *y;
+	*y = temp;
 }
 
 /**
- * partition - Partitions the array for Quick sort.
- * @array: Array of integers to partition.
+ * lomuto - Lomuto partition scheme for quicksort.
+ * @array: The array of integers to sort.
  * @low: Starting index of the partition.
  * @high: Ending index of the partition.
- * @size: Size of the array.
+ * @size: Size of the full array.
  *
- * Return: The index of the pivot after partitioning.
- */
-int partition(int array[], int low, int high, size_t size)
+ * Return: The pivot index
+ *
+ * This is where the magic happens  ^`^t we pick the last element as
+ * the 'pivot' and rearrange the array so that:
+ * all numbers smaller than or equal to it are on the left,
+ * and all the bigger numbers go on the right.
+**/
+int lomuto(int *array, int low, int high, size_t size)
 {
-	int pivot = array[high];
-	int temp, j;
-	int i = low;
+	int pivot_value = array[high];
+	int i, j;
+
+	i = low - 1;
 
 	for (j = low; j < high; j++)
 	{
-		if (array[j] <= pivot)
+		if (array[j] <= pivot_value)
 		{
-			if (i < j)
+			i++;
+			if (i != j)
 			{
-				temp = array[i];
-				array[i] = array[j];
-				array[j] = temp;
+				swap(&array[i], &array[j]);
 				print_array(array, size);
 			}
-			i++;
 		}
 	}
+
+	i++;
 	if (i != high)
 	{
-		temp = array[i];
-		array[i] = array[high];
-		array[high] = temp;
+		swap(&array[i], &array[high]);
 		print_array(array, size);
 	}
+
 	return (i);
 }
 
 /**
- * recurs - Recursively applies Quick sort to subarrays.
- * @array: Array of integers to sort.
- * @low: Starting index of the subarray.
- * @high: Ending index of the subarray.
- * @size: Size of the array.
+ * quick_sort - Sort an array of integers in ascending order using quicksort.
+ * @array: The array to sort.
+ * @size: The size of the array.
+ *
+ * This is the 'party planner' - it sets everything up for quicksort
+ * by calling the recursive function with the full array.
+ * If the array is empty or has only one element, we just... do nothing.
  */
-void recurs(int array[], int low, int high, size_t size)
+void quick_sort(int *array, size_t size)
 {
-	int index_pivot;
+	if (array == NULL || size < 2)
+		return;
+
+	quicksort_recursion(array, 0, size - 1, size);
+}
+
+/**
+ * quicksort_recursion - Recursively sort an array using quicksort.
+ * @array: The array of integers to sort.
+ * @low: Starting index of the current partition.
+ * @high: Ending index of the current partition.
+ * @size: Size of the full array.
+ *
+ * Think of this like cutting a cake into smaller and smaller pieces
+ * until all slices are perfectly sized. We use recursion to zoom into
+ * each partition until it's so small (one element) that it's already 'sorted'.
+**/
+void quicksort_recursion(int *array, int low, int high, size_t size)
+{
+	int pivot_index;
 
 	if (low < high)
 	{
-		index_pivot = partition(array, low, high, size);
-		recurs(array, low, index_pivot - 1, size);
-		recurs(array, index_pivot + 1, high, size);
+		pivot_index = lomuto(array, low, high, size);
+
+		quicksort_recursion(array, low, pivot_index - 1, size);
+		quicksort_recursion(array, pivot_index + 1, high, size);
 	}
 }
