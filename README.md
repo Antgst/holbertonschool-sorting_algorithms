@@ -13,7 +13,6 @@
 **Read or watch**:
 
 
-
 - [Sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm)
 
 - [Big O notation](https://stackoverflow.com/questions/487258/what-is-a-plain-english-explanation-of-big-o-notation)
@@ -29,9 +28,7 @@
 At the end of this project, you are expected to be able to [explain to anyone](https://fs.blog/feynman-learning-technique/), __without the help of Google__:
 
 
-
 ### General
-
 
 
 - At least four different sorting algorithms
@@ -47,7 +44,6 @@ At the end of this project, you are expected to be able to [explain to anyone](h
 ## ✅ Requirements
 
 ### General
-
 
 
 - Allowed editors: `vi`, `vim`, `emacs`
@@ -75,7 +71,6 @@ At the end of this project, you are expected to be able to [explain to anyone](h
 - All your header files should be include guarded
 
 - A list/array does not need to be sorted if its size is less than 2.
-
 
 
 ### GitHub
@@ -1244,43 +1239,12 @@ GitHub repository:
 holbertonschool-sorting_algorithms
 File:
 0-bubble_sort.c, 0-O
-Score of the task
-12
-/12
-pts
-100.0%
-0
-correction requests
-My GitHub
-Connect GitHub
-Connect as:
-Disconnect
-Repository
-Select a repository…
-Folder (optional)
-Run the correction
-Get a sandbox
-QA Review
-×
 0. Bubble sort
-Commit used:
-User:
 ---
-URL:
-Click here
-ID:
 ---
-Author:
 ---
-Subject:
 ---
-Date:
 ---
-×
-Students who are done with "0. Bubble sort"
-×
-Recommended Sandboxes
-Loading...
 ```
 
 </details>
@@ -1907,43 +1871,12 @@ GitHub repository:
 holbertonschool-sorting_algorithms
 File:
 1-insertion_sort_list.c, 1-O
-Score of the task
-12
-/12
-pts
-100.0%
-0
-correction requests
-My GitHub
-Connect GitHub
-Connect as:
-Disconnect
-Repository
-Select a repository…
-Folder (optional)
-Run the correction
-Get a sandbox
-QA Review
-×
 1. Insertion sort
-Commit used:
-User:
 ---
-URL:
-Click here
-ID:
 ---
-Author:
 ---
-Subject:
 ---
-Date:
 ---
-×
-Students who are done with "1. Insertion sort"
-×
-Recommended Sandboxes
-Loading...
 ```
 
 </details>
@@ -2231,43 +2164,12 @@ GitHub repository:
 holbertonschool-sorting_algorithms
 File:
 2-selection_sort.c, 2-O
-Score of the task
-12
-/12
-pts
-100.0%
-0
-correction requests
-My GitHub
-Connect GitHub
-Connect as:
-Disconnect
-Repository
-Select a repository…
-Folder (optional)
-Run the correction
-Get a sandbox
-QA Review
-×
 2. Selection sort
-Commit used:
-User:
 ---
-URL:
-Click here
-ID:
 ---
-Author:
 ---
-Subject:
 ---
-Date:
 ---
-×
-Students who are done with "2. Selection sort"
-×
-Recommended Sandboxes
-Loading...
 ```
 
 </details>
@@ -2560,43 +2462,12 @@ GitHub repository:
 holbertonschool-sorting_algorithms
 File:
 3-quick_sort.c, 3-O
-Score of the task
-12
-/12
-pts
-100.0%
-0
-correction requests
-My GitHub
-Connect GitHub
-Connect as:
-Disconnect
-Repository
-Select a repository…
-Folder (optional)
-Run the correction
-Get a sandbox
-QA Review
-×
 3. Quick sort
-Commit used:
-User:
 ---
-URL:
-Click here
-ID:
 ---
-Author:
 ---
-Subject:
 ---
-Date:
 ---
-×
-Students who are done with "3. Quick sort"
-×
-Recommended Sandboxes
-Loading...
 ```
 
 </details>
